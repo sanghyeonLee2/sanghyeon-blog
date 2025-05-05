@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+@import './utilities.css';
+@import './theme.css';
+
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    @apply antialiased;
+  }
+
+  .dark body {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    @apply text-blue-500 hover:underline;
+    text-decoration: none;
+  }
+
+  button {
+    @apply cursor-pointer bg-none border-none;
+    font: inherit;
+    color: inherit;
+  }
+}
