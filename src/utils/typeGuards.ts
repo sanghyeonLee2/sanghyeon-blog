@@ -1,4 +1,3 @@
-// src/utils/typeGuards.ts
 import type { CustomError } from '@/types/api/error';
 
 export function isCustomError(error: unknown): error is CustomError {
@@ -6,7 +5,7 @@ export function isCustomError(error: unknown): error is CustomError {
     typeof error === 'object' &&
     error !== null &&
     'status' in error &&
-    typeof (error as any).status === 'number'
+    typeof (error as { status?: unknown }).status === 'number'
   );
 }
 
