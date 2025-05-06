@@ -24,7 +24,7 @@ export const customQueryClient = new QueryClient({
       gcTime: 30 * 60 * 1000,
       refetchOnWindowFocus: false,
       retry: 1,
-      select: (res: any) => res.data,
+      select: (res) => (res as { data: unknown }).data,
     },
   },
 });
