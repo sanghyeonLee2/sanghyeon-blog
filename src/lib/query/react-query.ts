@@ -1,7 +1,7 @@
 import { QueryClient, QueryCache, MutationCache } from '@tanstack/react-query';
 import { useErrorStore } from '@/stores/useErrorStore';
 import errorHandler from '../errors/errorHandler';
-import isCritical from '../errors/isCritical';
+import { isCritical } from '@/utils/typeGuards';
 
 export const customQueryClient = new QueryClient({
   queryCache: new QueryCache({
@@ -24,6 +24,7 @@ export const customQueryClient = new QueryClient({
       gcTime: 30 * 60 * 1000,
       refetchOnWindowFocus: false,
       retry: 1,
+      select: (res: any) => res.data,
     },
   },
 });
