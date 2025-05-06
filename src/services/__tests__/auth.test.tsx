@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import HomeTemplate from '../HomeTemplate';
-import { TestProviders } from '@/tests/utils/TestProviders';
 import { postItems } from '@/services/post';
+import HomeTemplate from '@/components/templates/HomeTemplate';
 
 jest.mock('@/services/post', () => ({
   postItems: jest.fn(),
@@ -28,9 +27,7 @@ const mockPosts = [
 
 describe('HomeTemplate', () => {
   beforeEach(() => {
-    (postItems as jest.Mock).mockResolvedValue(mockPosts); // ✅ 배열
-
-    console.log('Mock된 postItems 실행됨');
+    (postItems as jest.Mock).mockResolvedValue(mockPosts);
   });
 
   afterEach(() => {
@@ -38,7 +35,7 @@ describe('HomeTemplate', () => {
   });
 
   it('게시글 목록이 API 응답으로 렌더링되어야 함', async () => {
-    render(<HomeTemplate posts={mockPosts} />, { wrapper: TestProviders });
+    render(<HomeTemplate posts={mockPosts} />);
     expect(await screen.findByText('Mock Post 1')).toBeInTheDocument();
     expect(await screen.findByText('Mock Post 2')).toBeInTheDocument();
   });
