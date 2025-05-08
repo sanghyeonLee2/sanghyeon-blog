@@ -1,4 +1,4 @@
-import type { CustomError } from '@/types/api/error';
+import type { CustomError } from '@/types/api/errors';
 
 export function isCustomError(error: unknown): error is CustomError {
   return (
@@ -10,7 +10,7 @@ export function isCustomError(error: unknown): error is CustomError {
 }
 
 export function isCritical(error: unknown): boolean {
-  if (!isCustomError(error)) return true; // 구조를 모르면 critical
+  if (!isCustomError(error)) return true;
 
   const status = error.status;
   return status === 500 || status === 403;
