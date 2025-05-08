@@ -6,7 +6,7 @@ export interface FetcherOptions extends Omit<RequestInit, 'method' | 'body'> {
   headers?: HeadersInit;
 }
 
-export interface Fetcher {
+export interface HttpClient {
   get: <T = unknown>(url: string, options?: FetcherOptions) => Promise<T>;
   post: <T = unknown>(url: string, data?: unknown, options?: FetcherOptions) => Promise<T>;
   put: <T = unknown>(url: string, data?: unknown, options?: FetcherOptions) => Promise<T>;
