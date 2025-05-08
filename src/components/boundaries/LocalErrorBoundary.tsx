@@ -4,7 +4,6 @@ import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 import FallbackUI from '../organisms/FallbackUI';
 
 export default function LocalErrorBoundary({ children }: { children: React.ReactNode }) {
-  console.log('boundary error');
   return (
     <ReactErrorBoundary
       fallbackRender={({ error, resetErrorBoundary }) => (
