@@ -1,34 +1,42 @@
 import { render, screen } from '@testing-library/react';
 import HomeTemplate from '../HomeTemplate';
 import { TestProviders } from '@/tests/utils/TestProviders';
-import { postItems } from '@/services/post';
+import { getPostList } from '@/services/post/post';
+import { Post } from '@/types/domain/post';
 
 jest.mock('@/services/post', () => ({
   postItems: jest.fn(),
 }));
 
-const mockPosts = [
+export const mockPosts: Post[] = [
   {
-    id: 1,
-    title: 'Mock Post 1',
-    summary: 'Summary 1',
-    content: 'Content 1',
-    author: 'Author 1',
+    id: '1',
+    slug: 'mock-post-1',
     date: '2025-01-01',
+    cover: null,
+    summary: 'Summary for Mock Post 1',
+    tags: [
+      { id: 'tag-1', name: 'mock' },
+      { id: 'tag-2', name: 'test' },
+    ],
+    published: true,
+    title: 'Mock Post 1',
   },
   {
-    id: 2,
-    title: 'Mock Post 2',
-    summary: 'Summary 2',
-    content: 'Content 2',
-    author: 'Author 2',
+    id: '2',
+    slug: 'mock-post-2',
     date: '2025-01-02',
+    cover: 'https://example.com/cover.jpg',
+    summary: 'Summary for Mock Post 2',
+    tags: [{ id: 'tag-3', name: 'sample' }],
+    published: true,
+    title: 'Mock Post 2',
   },
 ];
 
 describe('HomeTemplate', () => {
   beforeEach(() => {
-    (postItems as jest.Mock).mockResolvedValue(mockPosts); // ✅ 배열
+    (getPostList as jest.Mock).mockResolvedValue(mockPosts);
 
     console.log('Mock된 postItems 실행됨');
   });
