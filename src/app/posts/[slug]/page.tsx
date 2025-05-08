@@ -7,7 +7,7 @@ import { getPostList } from '@/services/post/post';
 import { getPublishedSlugParams } from '@/services/post/utils';
 import type { PostSlugParam } from '@/types/domain/post';
 
-export default async function PostPage({ params }: { params: PostSlugParam }) {
+export default async function PostPage({ params }: { params: Promise<PostSlugParam> }) {
   const { slug } = await params;
   const recordMap = await getPostBySlug(slug);
   return <NotionPageRenderer recordMap={recordMap} />;
