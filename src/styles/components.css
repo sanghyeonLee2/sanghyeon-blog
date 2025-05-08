@@ -1,0 +1,26 @@
+@layer components {
+  .layout-wrapper {
+    @apply min-h-screen max-w-4xl mx-auto flex flex-col items-center;
+  }
+  .section-padding {
+    @apply py-5 px-6;
+  }
+  .article-padding {
+    @apply py-8 px-10;
+  }
+  .btn-padding {
+    @apply py-2 px-4;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .margin-center {
+    @apply mx-auto my-0;
+  }
+  .flex-wrap {
+    @apply flex flex-wrap;
+  }
+  .date {
+    @apply text-sm text-gray-500;
+  }
+}
