@@ -6,11 +6,9 @@ import Logo from '../atoms/Logo';
 
 export default function Header() {
   return (
-    <header className="w-full section-padding sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between">
-        <Logo />
-        <ThemeToggle />
-      </div>
+    <header className="flex items-center justify-between max-w-4xl w-full z-50 h-18 section-padding">
+      <Logo />
+      <ThemeToggle />
     </header>
   );
 }
