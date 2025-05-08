@@ -12,8 +12,8 @@ export default function ThemeToggle() {
       aria-label="Toggle theme"
       className="
       w-10 h-10 flex-center
-      rounded-full transition-all duration-300 ease-in-out
-      bg-gray-200 dark:bg-zinc-800
+      rounded-full
+      bg-[var(--color-theme-toggle-bg)]
       shadow-md dark:shadow-lg
     "
     >
