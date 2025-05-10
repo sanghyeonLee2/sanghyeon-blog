@@ -3,8 +3,12 @@
 import { useEffect } from 'react';
 import { useThemeStore } from '@/stores/themeStore';
 import { getCookie } from '@/utils/cookie';
+export interface UseThemeResult {
+  isDark: boolean;
+  toggleTheme: () => void;
+}
 
-export function useTheme() {
+export function useTheme(): UseThemeResult {
   const theme = useThemeStore((s) => s.theme);
   const setTheme = useThemeStore((s) => s.setTheme);
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
@@ -16,5 +20,5 @@ export function useTheme() {
     }
   }, [setTheme]);
 
-  return { theme, toggleTheme };
+  return { isDark: theme === 'dark', toggleTheme };
 }
