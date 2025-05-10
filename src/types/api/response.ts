@@ -1,7 +1,10 @@
-import { notion } from '@/lib/notion/notionClient';
+import { ExtendedRecordMap } from 'notion-types';
 export interface ApiResponse<T> {
   data: T;
   status: number;
   message?: string;
 }
-export type PostRecordMap = Awaited<ReturnType<typeof notion.getPage>>;
+export interface PostRecordMap {
+  id: string;
+  recordMap: ExtendedRecordMap;
+}
