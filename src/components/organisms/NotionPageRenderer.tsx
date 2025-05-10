@@ -1,23 +1,23 @@
 // components/organisms/NotionPageRenderer.tsx
 'use client';
 import { NotionRenderer } from 'react-notion-x';
-import 'react-notion-x/src/styles.css';
-import 'prismjs/themes/prism-tomorrow.css';
 import { PostRecordMap } from '@/types/api/response';
 import { Code } from 'react-notion-x/build/third-party/code';
-import { Collection } from 'react-notion-x/build/third-party/collection';
+import { useTheme } from '@/hooks/useTheme';
 
-export default function NotionPageRenderer({ recordMap }: { recordMap: PostRecordMap }) {
+export default function NotionPageRenderer({ recordMap, id }: PostRecordMap) {
+  const { isDark } = useTheme();
   return (
-    <div className="prose dark:prose-invert">
+    <div>
       <NotionRenderer
+        rootPageId={id}
+        fullPage={true}
+        disableHeader={true}
         recordMap={recordMap}
-        darkMode={true}
-        showTableOfContents={true}
-        defaultPageCover="/default-cover.png"
+        darkMode={isDark}
+        previewImages={true}
         components={{
           Code,
-          Collection,
         }}
       />
     </div>
