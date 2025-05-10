@@ -17,7 +17,8 @@ export const getPostBySlug = cache(async (slug: string): Promise<PostRecordMap> 
   const posts = await getPostList();
   const isMatchPostBySlug = findPostBySlug(posts, slug);
   if (!isMatchPostBySlug) notFound();
-  return await getNotionPage(isMatchPostBySlug.id);
+  const recordMap = await getNotionPage(isMatchPostBySlug.id);
+  return { id: isMatchPostBySlug.id, recordMap };
 });
 
 export const getNotionPage = async (id: string) => {
