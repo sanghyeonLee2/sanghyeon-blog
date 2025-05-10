@@ -13,9 +13,9 @@ const PostItem = ({ post }: PostItemProps) => {
     <Link href={ROUTES.POST(post.slug)}>
       <article className="min-h-80">
         <Thumbnail src={post.cover} />
-        <h2>{post.title}</h2>
+        <h2 className="hover-opacity">{post.title}</h2>
         <Summary text={post.summary} />
-        <div className="flex gap-1 my-3">
+        <div className="flex gap-2 my-3">
           {post.tags.map((tag) => (
             <Tag key={tag.id} name={tag.name} />
           ))}
