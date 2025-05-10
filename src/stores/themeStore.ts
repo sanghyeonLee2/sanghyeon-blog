@@ -9,7 +9,7 @@ type ThemeState = {
 };
 
 export const useThemeStore = create<ThemeState>((set, get) => ({
-  theme: 'light', // SSR-safe 기본값
+  theme: 'dark', // SSR-safe 기본값
   setTheme: (theme) => {
     set({ theme });
     const root = document.documentElement;
