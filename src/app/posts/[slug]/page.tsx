@@ -9,8 +9,8 @@ import type { PostSlugParam } from '@/types/domain/post';
 
 export default async function PostPage({ params }: { params: Promise<PostSlugParam> }) {
   const { slug } = await params;
-  const recordMap = await getPostBySlug(slug);
-  return <NotionPageRenderer recordMap={recordMap} />;
+  const { id, recordMap } = await getPostBySlug(slug);
+  return <NotionPageRenderer recordMap={recordMap} id={id} />;
 }
 
 export async function generateStaticParams(): Promise<PostSlugParam[]> {
