@@ -8,7 +8,7 @@ interface ThumbnailProps {
 
 const Thumbnail = ({ src }: ThumbnailProps) => {
   return (
-    <div className="transition-all duration-200 ease-in-out hover:brightness-80 hover:-translate-y-1 aspect-[3/2] overflow-hidden rounded-2xl">
+    <div className="shadow-[var(--shadow)] transition-all duration-200 ease-in-out hover-opacity hover:-translate-y-1 aspect-[3/2] overflow-hidden rounded-2xl">
       <img src={src ?? DEFAULTS.IMG_URL} alt={'썸네일'} className="w-full h-full object-cover " />
     </div>
   );
