@@ -2,8 +2,17 @@
   .layout-wrapper {
     @apply min-h-screen max-w-4xl mx-auto flex flex-col items-center;
   }
-  .section-padding {
+  .hover-opacity {
+    @apply hover:opacity-80;
+  }
+  .p-content {
     @apply py-5 px-6;
+  }
+  .px-content {
+    @apply px-6;
+  }
+  .py-content {
+    @apply py-5;
   }
   .article-padding {
     @apply py-8 px-10;
