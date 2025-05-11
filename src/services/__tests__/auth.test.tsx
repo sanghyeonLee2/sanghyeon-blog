@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { getPostList } from '@/services/post/post';
-import HomeTemplate from '@/components/templates/HomeTemplate';
 
 jest.mock('@/services/post', () => ({
   getPostList: jest.fn(),

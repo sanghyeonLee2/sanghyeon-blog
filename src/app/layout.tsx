@@ -1,3 +1,4 @@
+// app/layout.tsx 또는 app/global.css에 직접 import
 import { CONFIG } from '@/constants/config';
 import '@/styles/globals.css';
 import { pretendard } from '@/fonts/fonts';
