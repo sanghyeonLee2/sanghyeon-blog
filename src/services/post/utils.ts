@@ -10,7 +10,7 @@ export const isNotionNotFoundError = (error: unknown): boolean =>
 
 export const parsePost = (result: NotionPostsResponse['results'][number]): Post => ({
   id: result.id,
-  slug: result.properties.slug.formula.string,
+  slug: result.properties.slug?.rich_text.at(0)?.plain_text ?? DEFAULTS.EMPTY_STRING,
   date: result.properties.date.date?.start ?? DEFAULTS.EMPTY_STRING,
   cover: result.properties.cover?.files?.at(0)?.file?.url ?? DEFAULTS.PLACEHOLDER_STRING,
   summary: result.properties.summary?.rich_text.at(0)?.plain_text ?? DEFAULTS.EMPTY_STRING,

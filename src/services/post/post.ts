@@ -17,11 +17,11 @@ export const getPostBySlug = cache(async (slug: string): Promise<PostRecordMap> 
   const posts = await getPostList();
   const isMatchPostBySlug = findPostBySlug(posts, slug);
   if (!isMatchPostBySlug) notFound();
-  const recordMap = await getNotionPage(isMatchPostBySlug.id);
+  const recordMap = await getNotionPostPage(isMatchPostBySlug.id);
   return { id: isMatchPostBySlug.id, recordMap };
 });
 
-export const getNotionPage = async (id: string) => {
+export const getNotionPostPage = async (id: string) => {
   try {
     return await notion.getPage(id);
   } catch (err) {
