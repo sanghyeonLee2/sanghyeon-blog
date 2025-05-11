@@ -8,7 +8,7 @@
   }
 
   .notion-page {
-    padding-inline: 1.5rem !important;
+    padding-inline: 1.25rem !important;
     margin: 0 !important;
     width: 100% !important;
   }
@@ -18,8 +18,6 @@
   }
 
   .notion {
-    padding-bottom: 1.25rem !important;
-    max-width: 56rem !important;
     color: var(--color-text) !important;
     font-family: 'Pretendard', sans-serif !important;
     font-size: 1.1rem !important;

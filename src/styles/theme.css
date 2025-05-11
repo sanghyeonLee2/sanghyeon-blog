@@ -7,7 +7,7 @@
 
   --color-accent-text: #1e293b;
 
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.1); /* 또는 0.3~0.4 정도 */
 }
 
 html.dark {
@@ -19,5 +19,5 @@ html.dark {
 
   --color-accent-text: #f1f5f9;
 
-  --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.35);
 }
