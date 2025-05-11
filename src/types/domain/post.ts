@@ -14,21 +14,25 @@ export interface NotionPostsResponse {
   results: {
     id: string;
     properties: {
-      slug: Slug;
+      slug: Text;
       date: PostDate;
       cover: Cover;
-      summary: Summary;
+      summary: Text;
       tags: Tags;
-      published: Published;
+      published: Checkbox;
       title: Title;
     };
   }[];
 }
-export interface Slug {
-  formula: {
-    type: 'string';
-    string: string;
-  };
+export interface Text {
+  rich_text: {
+    plain_text: string;
+  }[];
+}
+export interface Title {
+  title: {
+    plain_text: string;
+  }[];
 }
 export interface PostDate {
   date: {
@@ -44,11 +48,6 @@ export interface Cover {
   }[];
 }
 
-export interface Summary {
-  rich_text: {
-    plain_text: string;
-  }[];
-}
 export interface Tags {
   multi_select: MultiSelectTags[];
 }
@@ -56,14 +55,10 @@ export interface MultiSelectTags {
   id: string;
   name: string;
 }
-export interface Published {
+export interface Checkbox {
   checkbox: boolean;
 }
-export interface Title {
-  title: {
-    plain_text: string;
-  }[];
-}
+
 export type PostSlugParam = {
   slug: string;
 };
