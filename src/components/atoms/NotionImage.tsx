@@ -1,8 +1,24 @@
-const NotionImage = ({ src, alt }: { src: string; alt: string }) => {
+// components/atoms/NotionImage.tsx
+import React from 'react';
+
+interface NotionImageProps {
+  src: string;
+  alt?: string;
+  className?: string;
+  width?: number;
+  height?: number;
+  style?: React.CSSProperties;
+}
+
+const NotionImage = ({ className, ...props }: NotionImageProps) => {
   return (
-    <div className="shadow-[var(--shadow)] h-auto transition-all duration-200 ease-in-out hover-opacity mx-auto overflow-hidden max-w-full ">
-      <img src={src} alt={alt} className="w-auto max-w-full h-auto block" />
-    </div>
+    <img
+      {...props}
+      className={`shadow-[var(--shadow)] ${className}`}
+      loading="lazy"
+      decoding="async"
+    />
   );
 };
+
 export default NotionImage;
