@@ -1,26 +1,26 @@
-// PostItem.tsx
 'use client';
-import React from 'react';
-import Thumbnail from '../atoms/Thumbnail';
-import Tag from '../atoms/Tag';
-import Summary from '../atoms/Summary';
+
+import React, { JSX } from 'react';
+import Thumbnail from '../atoms/Image';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { PostItemProps } from '@/types/props/postItemProps';
+import PostContent from '../molecules/PostContent';
+import PostMeta from '../molecules/PostMeta';
 
-const PostItem = ({ post }: PostItemProps) => {
+const PostItem = ({ post }: PostItemProps): JSX.Element => {
   return (
     <Link href={ROUTES.POST(post.slug)}>
-      <article className="min-h-80">
-        <Thumbnail src={post.cover} />
-        <h2 className="hover-opacity">{post.title}</h2>
-        <Summary text={post.summary} />
-        <div className="flex gap-2 my-3">
-          {post.tags.map((tag) => (
-            <Tag key={tag.id} name={tag.name} />
-          ))}
+      <article className="bg-[var(--color-post-bg)] h-full flex flex-col rounded-2xl shadow-[var(--shadow)] transition hover:shadow-lg hover:-translate-y-1">
+        <Thumbnail
+          alt="커버이미지"
+          src={post.cover}
+          className="aspect-[3/2] w-full rounded-t-2xl"
+        />
+        <div className="flex flex-col justify-between flex-1 p-4">
+          <PostContent title={post.title} summary={post.summary} />
+          <PostMeta tags={post.tags} date={post.date} />
         </div>
-        <span className="date">{post.date}</span>
       </article>
     </Link>
   );
