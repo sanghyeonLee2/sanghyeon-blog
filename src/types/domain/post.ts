@@ -16,7 +16,7 @@ export interface NotionPostsResponse {
     properties: {
       slug: Text;
       date: PostDate;
-      cover: Cover;
+      cover: { files: File[] | ExternalFile[] };
       summary: Text;
       tags: Tags;
       published: Checkbox;
@@ -39,13 +39,19 @@ export interface PostDate {
     start: string;
   };
 }
-export interface Cover {
-  files: {
-    name: string;
-    file: {
-      url: string;
-    };
-  }[];
+export interface File {
+  name: string;
+  type: string;
+  file: {
+    url: string;
+  };
+}
+export interface ExternalFile {
+  name: string;
+  type: string;
+  external: {
+    url: string;
+  };
 }
 
 export interface Tags {
@@ -53,6 +59,7 @@ export interface Tags {
 }
 export interface MultiSelectTags {
   id: string;
+  color: string;
   name: string;
 }
 export interface Checkbox {
