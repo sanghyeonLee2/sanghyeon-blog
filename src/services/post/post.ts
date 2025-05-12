@@ -18,7 +18,16 @@ export const getPostBySlug = cache(async (slug: string): Promise<PostRecordMap> 
   const isMatchPostBySlug = findPostBySlug(posts, slug);
   if (!isMatchPostBySlug) notFound();
   const recordMap = await getNotionPostPage(isMatchPostBySlug.id);
-  return { id: isMatchPostBySlug.id, recordMap };
+  return {
+    additionalPostData: {
+      cover: isMatchPostBySlug.cover,
+      title: isMatchPostBySlug.title,
+      postedDate: isMatchPostBySlug.date,
+      id: isMatchPostBySlug.id,
+      tags: isMatchPostBySlug.tags,
+    },
+    recordMap,
+  };
 });
 
 export const getNotionPostPage = async (id: string) => {
