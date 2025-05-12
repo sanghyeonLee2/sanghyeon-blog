@@ -6,10 +6,10 @@
     @apply hover:opacity-80;
   }
   .p-content {
-    @apply py-5 px-5;
+    @apply py-5 px-3.75;
   }
   .px-content {
-    @apply px-5;
+    @apply px-3.75;
   }
   .py-content {
     @apply py-5;
