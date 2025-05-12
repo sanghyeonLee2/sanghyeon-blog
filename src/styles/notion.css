@@ -56,6 +56,6 @@
   background-color: var(--color-article-bg) !important;
 }
 
-html.dark .notion {
+body.dark .notion {
   color: var(--color-text) !important; /* 이미 var로 바뀌니까 여기선 값은 안 바꿔도 됨 */
 }

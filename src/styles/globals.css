@@ -2,12 +2,13 @@
 @import './components.css';
 @import './theme.css';
 @import './notion.css';
+
 @layer base {
   html {
     color-scheme: light dark;
   }
-  /* antialiased ==폰트를 부드럽게 보이게 하기 위한 렌더링 힌트 */
-  /* .antialiased {
+  /* antialiased ==폰트를 부드럽게 보이게 하기 위한 렌더링 힌트 
+  .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
@@ -16,7 +17,7 @@
     color: var(--color-text);
     @apply antialiased;
   }
-  /* CSS에서 color 속성은 상속되는 속성 */
+
   html,
   body {
     @apply transition-colors duration-300 ease-in-out;

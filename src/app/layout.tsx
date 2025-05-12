@@ -10,8 +10,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const cookieStore = await cookies();
   const theme = cookieStore.get('theme')?.value === 'dark' ? 'dark' : '';
   return (
-    <html lang={CONFIG.DEFAULT_LANGUAGE} className={`${pretendard.variable} ${theme}`}>
-      <body className={`${pretendard.className} layout-wrapper`}>
+    <html lang={CONFIG.DEFAULT_LANGUAGE} className={`${pretendard.variable}`}>
+      <body className={`${pretendard.className} layout-wrapper ${theme}`}>
         <Header />
         {children}
         <Footer />
