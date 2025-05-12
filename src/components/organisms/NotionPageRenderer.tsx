@@ -8,26 +8,29 @@ import { useTheme } from '@/hooks/useTheme';
 import NotionImage from './../atoms/NotionImage';
 import NotionPostHeader from '../molecules/NotionPostHeader';
 
-// ✅ Code 컴포넌트 lazy import
 const Code = dynamic(() => import('react-notion-x/build/third-party/code').then((m) => m.Code), {
-  ssr: false, // Next.js에서 import { Tags } from './../../types/domain/post';
+  ssr: false,
 });
 
 export default function NotionPageRenderer({ additionalPostData, recordMap }: PostRecordMap) {
   const { isDark } = useTheme();
 
   return (
-    <div className="my-4">
+    <div>
       {/* <CoverImage alt={'썸네일'} src={additionalPostData.cover} className="h-[30vh]" /> */}
       <NotionRenderer
+        fullPage={true}
         rootPageId={additionalPostData.id}
         disableHeader={true}
         recordMap={recordMap}
+        pageTitle={<></>}
         darkMode={isDark}
         forceCustomImages={true}
+        showTableOfContents={true}
         components={{
           Code,
           Image: NotionImage,
+          Collection: () => null,
         }}
         pageHeader={
           <NotionPostHeader

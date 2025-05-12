@@ -10,13 +10,17 @@ interface NotionImageProps {
   style?: React.CSSProperties;
 }
 
-const NotionImage = ({ className, ...props }: NotionImageProps) => {
+const NotionImage = ({ className, src, alt = '', width, height, style }: NotionImageProps) => {
   return (
     <img
-      {...props}
-      className={`shadow-[var(--shadow)] ${className}`}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      style={style}
       loading="lazy"
       decoding="async"
+      className={`shadow-[var(--shadow)] ${className ?? ''}`}
     />
   );
 };

@@ -17,7 +17,7 @@ const PostItem = ({ post }: PostItemProps): JSX.Element => {
           src={post.cover}
           className="aspect-[3/2] w-full rounded-t-2xl"
         />
-        <div className="flex flex-col justify-between flex-1 p-4">
+        <div className="flex flex-col justify-between flex-1 px-4 py-4">
           <PostContent title={post.title} summary={post.summary} />
           <PostMeta tags={post.tags} date={post.date} />
         </div>

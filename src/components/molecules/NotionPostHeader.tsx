@@ -15,8 +15,8 @@ export default function NotionPostHeader({
 }: NotionPostHeaderProps): JSX.Element {
   return (
     <div>
-      <div className="pt-5 pb-2">
-        <h1 className="py-4 text-4xl font-bold leading-snug tracking-tight">{title}</h1>
+      <div className="pb-2">
+        <h1 className="pb-4 text-4xl font-bold leading-snug tracking-tight">{title}</h1>
         <PostMeta tags={tags} date={postedDate} />
       </div>
     </div>

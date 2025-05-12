@@ -8,7 +8,7 @@ export default function HomeTemplate({ posts }: HomeTemplateProps) {
   return (
     <main className="w-full px-content flex-grow">
       <Banner />
-      <section className="py-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <section className="py-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4.75">
         {posts?.map((post) => (
           <LocalErrorBoundary key={post.id}>
             <PostItem post={post} />
