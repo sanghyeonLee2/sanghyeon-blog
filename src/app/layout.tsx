@@ -1,4 +1,3 @@
-// app/layout.tsx 또는 app/global.css에 직접 import
 import { CONFIG } from '@/constants/config';
 import '@/styles/globals.css';
 import { pretendard } from '@/fonts/fonts';
@@ -10,8 +9,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const cookieStore = await cookies();
   const theme = cookieStore.get('theme')?.value === 'dark' ? 'dark' : '';
   return (
-    <html lang={CONFIG.DEFAULT_LANGUAGE} className={`${pretendard.variable}`}>
-      <body className={`${pretendard.className} layout-wrapper ${theme}`}>
+    <html lang={CONFIG.DEFAULT_LANGUAGE} className={`${pretendard.variable} ${theme}`}>
+      <body className={`${pretendard.className} layout-wrapper`}>
         <Header />
         {children}
         <Footer />

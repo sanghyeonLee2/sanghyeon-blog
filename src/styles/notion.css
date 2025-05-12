@@ -1,5 +1,3 @@
-/* src/styles/notion.css */
-
 .notion-page {
   padding-inline: 1.25rem !important;
   width: 100% !important;
@@ -56,6 +54,6 @@
   background-color: var(--color-article-bg) !important;
 }
 
-body.dark .notion {
+html.dark .notion {
   color: var(--color-text) !important; /* 이미 var로 바뀌니까 여기선 값은 안 바꿔도 됨 */
 }
