@@ -21,4 +21,4 @@ const NotionImage = ({ className, ...props }: NotionImageProps) => {
   );
 };
 
-export default NotionImage;
+export default React.memo(NotionImage);
