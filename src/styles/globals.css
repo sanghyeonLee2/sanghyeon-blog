@@ -9,7 +9,6 @@
 
   .notion-page {
     padding-inline: 1.25rem !important;
-    margin: 0 !important;
     width: 100% !important;
   }
 
@@ -46,10 +45,6 @@
     @apply transition-colors duration-300 ease-in-out;
   }
 
-  article {
-    cursor: pointer;
-  }
-
   *,
   *::before,
   *::after {
@@ -71,10 +66,5 @@
 
   p {
     @apply font-medium;
-  }
-
-  h2 {
-    @apply text-3xl font-bold;
-    margin: revert;
   }
 }
