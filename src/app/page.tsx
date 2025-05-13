@@ -1,4 +1,3 @@
-// app/page.tsx
 export const dynamic = 'force-static';
 
 import HomeTemplate from '@/components/templates/HomeTemplate';
