@@ -7,6 +7,7 @@ import { PostRecordMap } from '@/types/api/response';
 import { useTheme } from '@/hooks/useTheme';
 import NotionImage from './../atoms/NotionImage';
 import NotionPostHeader from '../molecules/NotionPostHeader';
+import Giscus from './Giscus';
 
 const Code = dynamic(() => import('react-notion-x/build/third-party/code').then((m) => m.Code), {
   ssr: false,
@@ -16,7 +17,7 @@ export default function NotionPageRenderer({ additionalPostData, recordMap }: Po
   const { isDark } = useTheme();
 
   return (
-    <div>
+    <div className="pb-20">
       {/* <CoverImage alt={'썸네일'} src={additionalPostData.cover} className="h-[30vh]" /> */}
       <NotionRenderer
         fullPage={true}
@@ -40,6 +41,7 @@ export default function NotionPageRenderer({ additionalPostData, recordMap }: Po
           />
         }
       />
+      <Giscus />
     </div>
   );
 }
