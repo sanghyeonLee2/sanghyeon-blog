@@ -13,7 +13,7 @@ export const mockPosts: Post[] = [
     id: '1',
     slug: 'mock-post-1',
     date: '2025-01-01',
-    cover: null,
+    cover: '',
     summary: 'Summary for Mock Post 1',
     tags: [
       { id: 'tag-1', name: 'mock', color: 'red' },

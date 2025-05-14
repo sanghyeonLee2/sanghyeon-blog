@@ -13,7 +13,7 @@ export const parsePost = (result: NotionPostsResponse['results'][number]): Post 
   id: result.id,
   slug: result.properties.slug?.rich_text.at(0)?.plain_text ?? DEFAULTS.EMPTY_STRING,
   date: result.properties.date.date?.start ?? DEFAULTS.EMPTY_STRING,
-  cover: getCoverUrl(result.properties.cover.files),
+  cover: getCoverUrl(result.properties.cover.files) ?? DEFAULTS.IMG_URL,
   summary: result.properties.summary?.rich_text.at(0)?.plain_text ?? DEFAULTS.EMPTY_STRING,
   tags: result.properties.tags.multi_select,
   published: result.properties.published.checkbox,
