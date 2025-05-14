@@ -5,8 +5,10 @@ import { cache } from 'react';
 import { notion } from '@/lib/notion/notionClient';
 import { PostRecordMap } from '@/types/api/response';
 import { notFound } from 'next/navigation';
-import { createCustomError } from '@/lib/api/utils/createCustomError';
+import { createCustomError } from '@/lib/utils/createCustomError';
 import { findPostBySlug, isNotionNotFoundError, parsePost } from './utils';
+import { withTimeout } from '@/lib/utils/withTimeout';
+import { CONFIG } from '@/constants/config';
 
 export const getPostList = cache(async (): Promise<Post[]> => {
   const { results } = await httpClient.post<NotionPostsResponse>(API_URLS.POST.ALL);
@@ -32,7 +34,7 @@ export const getPostBySlug = cache(async (slug: string): Promise<PostRecordMap> 
 
 export const getNotionPostPage = async (id: string) => {
   try {
-    return await notion.getPage(id);
+    return await withTimeout(notion.getPage(id), CONFIG.DEFAULT_TIMEOUT);
   } catch (err) {
     if (isNotionNotFoundError(err)) notFound();
     throw createCustomError(500, err instanceof Error ? err.message : undefined);

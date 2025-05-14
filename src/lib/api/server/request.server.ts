@@ -1,17 +1,14 @@
 import { CONFIG } from '@/constants/config';
 import type { HttpMethod, FetcherOptions } from '@/types/api/fetchers';
-import { parseErrorResponse } from '../utils/parseErrorResponse';
+import { parseErrorResponse } from '../../utils/parseErrorResponse';
 import { isCritical } from '@/utils/typeGuards';
 import showErrorToast from '../../ui/showErrorToast';
-const baseURL = process.env.NEXT_PUBLIC_NOTION_API_URL;
-const NOTION_TOKEN = process.env.NEXT_PUBLIC_NOTION_TOKEN;
-import { createCustomError } from '@/lib/api/utils/createCustomError';
+import { createCustomError } from '../../utils/createCustomError';
+import { checkApiEnv } from '../../utils/checkApiEnv';
+import { buildHeaders } from '../../utils/buildHeaders';
+import { buildURL } from '../../utils/buildURL';
 
-if (!baseURL || !NOTION_TOKEN) {
-  throw createCustomError(500);
-}
-
-const buildURL = (url: string) => `${baseURL}${url}`;
+const { token: NOTION_TOKEN } = checkApiEnv();
 
 async function request<T>(
   method: HttpMethod,
@@ -22,17 +19,9 @@ async function request<T>(
   const { timeout = CONFIG.DEFAULT_TIMEOUT, headers, ...rest } = options;
   const controller = new AbortController();
 
-  const finalHeaders: HeadersInit = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-    ...(headers || {}),
-    Authorization: `Bearer ${NOTION_TOKEN}`,
-    'Notion-Version': '2022-06-28',
-  };
-
   const fetchOptions: RequestInit = {
     method,
-    headers: finalHeaders,
+    headers: buildHeaders(NOTION_TOKEN, headers),
     signal: controller.signal,
     ...rest,
     body: data ? JSON.stringify(data) : undefined,
@@ -46,7 +35,9 @@ async function request<T>(
     if (!res.ok) {
       const parsedError = await parseErrorResponse(res);
 
-      if (isCritical(parsedError)) throw createCustomError(parsedError.status, parsedError.message);
+      if (isCritical(parsedError)) {
+        throw createCustomError(parsedError.status, parsedError.message);
+      }
 
       showErrorToast(parsedError.status);
     }
