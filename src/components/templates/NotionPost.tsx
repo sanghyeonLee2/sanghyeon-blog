@@ -1,20 +1,19 @@
-// components/organisms/NotionPageRenderer.tsx
 'use client';
 
 import dynamic from 'next/dynamic';
 import { NotionRenderer } from 'react-notion-x';
 import { PostRecordMap } from '@/types/api/response';
-import { useTheme } from '@/hooks/useTheme';
-import NotionImage from './../atoms/NotionImage';
-import NotionPostHeader from '../molecules/NotionPostHeader';
-import Giscus from './Giscus';
+import NotionImage from '../atoms/image/NotionImage';
+import NotionPostHeader from '../molecules/post/NotionPostHeader';
+import Giscus from '../organisms/post/Giscus';
+import { useNextTheme } from '@/hooks/useNextTheme';
 
 const Code = dynamic(() => import('react-notion-x/build/third-party/code').then((m) => m.Code), {
   ssr: false,
 });
 
-export default function NotionPageRenderer({ additionalPostData, recordMap }: PostRecordMap) {
-  const { isDark } = useTheme();
+export default function NotionPost({ additionalPostData, recordMap }: PostRecordMap) {
+  const { isDark } = useNextTheme();
 
   return (
     <div className="pb-20">

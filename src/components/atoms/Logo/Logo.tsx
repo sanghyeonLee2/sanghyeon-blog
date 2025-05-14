@@ -1,4 +1,3 @@
-// components/atoms/Logo.tsx
 import { ROUTES } from '@/constants/routes';
 import Link from 'next/link';
 

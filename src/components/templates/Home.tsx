@@ -1,10 +1,10 @@
 'use client';
 import LocalErrorBoundary from '../boundaries/LocalErrorBoundary';
-import Banner from '../organisms/Banner';
-import PostItem from '../organisms/PostItem';
+import Banner from '../organisms/layout/Banner';
+import PostItem from '../organisms/post/PostItem';
 import { HomeTemplateProps } from '@/types/props/homeTemplateProps';
 
-export default function HomeTemplate({ posts }: HomeTemplateProps) {
+export default function Home({ posts }: HomeTemplateProps) {
   return (
     <main className="w-full px-content flex-grow">
       <Banner />

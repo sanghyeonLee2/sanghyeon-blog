@@ -1,6 +1,5 @@
-// src/app/not-found.tsx
-import PageNotFound from '@/components/organisms/PageNotFound';
+import NotFound from '@/components/templates/NotFound';
 
 export default function NotFoundPage() {
-  return <PageNotFound />;
+  return <NotFound />;
 }

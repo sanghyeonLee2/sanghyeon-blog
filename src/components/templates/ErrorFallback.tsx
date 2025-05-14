@@ -4,7 +4,7 @@ import { FallbackUIProps } from '@/types/props/errorProps';
 import { CustomError } from '@/types/api/errors';
 import { useState } from 'react';
 
-export default function FallbackUI({ error, onRetry }: FallbackUIProps) {
+export default function ErrorFallback({ error, onRetry }: FallbackUIProps) {
   const typedError = error as unknown as CustomError;
   const [showDetail, setShowDetail] = useState(false);
   return (

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Button from '../Button';
+import Button from '../button/Button';
 
 describe('Button', () => {
   it('텍스트가 제대로 렌더링되는지 확인', () => {
