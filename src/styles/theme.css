@@ -1,11 +1,14 @@
 :root {
   --color-bg: #f8f9fa;
+  --color-bg-hover: rgba(0, 0, 0, 0.05);
   --color-text: #374151;
 
   --color-primary: #f1f5f9;
   --color-accent: #e0f2fe;
   --color-accent-text: #1e293b;
   --color-post-bg: #f8f9fa;
+
+  --color-dropdown-bg: #f8f9fa;
 
   --color-tag-default-bg: #d1d5db;
   --color-tag-default-text: #374151;
@@ -42,6 +45,7 @@
 
 html.dark {
   --color-bg: #0f172a;
+  --color-bg-hover: rgba(255, 255, 255, 0.08);
   --color-text: #e2e8f0;
 
   --color-primary: #1e293b;
@@ -49,6 +53,8 @@ html.dark {
 
   --color-accent-text: #f1f5f9;
   --color-post-bg: #1e293b;
+
+  --color-dropdown-bg: #2c2f36;
 
   --color-tag-default-bg: #4b5563;
   --color-tag-default-text: #f3f4f6;

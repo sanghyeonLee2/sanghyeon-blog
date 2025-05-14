@@ -2,6 +2,7 @@
 @import './components.css';
 @import './theme.css';
 @import './notion.css';
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   html {
@@ -20,7 +21,9 @@
 
   html,
   body {
-    @apply transition-colors duration-300 ease-in-out;
+    transition-property: color, background-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
   }
 
   *,

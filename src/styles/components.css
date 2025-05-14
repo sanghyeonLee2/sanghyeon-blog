@@ -1,9 +1,12 @@
 @layer components {
+  .flex-center-between {
+    @apply flex items-center justify-between;
+  }
   .layout-wrapper {
     @apply min-h-screen max-w-4xl mx-auto flex flex-col items-center;
   }
   .hover-opacity {
-    @apply hover:opacity-80;
+    @apply hover:opacity-65;
   }
   .p-content {
     @apply py-5 px-3.75;

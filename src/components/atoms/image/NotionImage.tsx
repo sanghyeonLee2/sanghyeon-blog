@@ -1,4 +1,3 @@
-// components/atoms/NotionImage.tsx
 import React from 'react';
 
 interface NotionImageProps {
