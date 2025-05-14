@@ -4,11 +4,11 @@ import React, { JSX } from 'react';
 import Thumbnail from '../../atoms/image/Image';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
-import { PostItemProps } from '@/types/props/postItemProps';
 import PostContent from '../../molecules/post/PostContent';
 import PostMeta from '../../molecules/post/PostMeta';
+import { Post } from '@/types/domain/post';
 
-const PostItem = ({ post }: PostItemProps): JSX.Element => {
+const PostItem = ({ post }: { post: Post }): JSX.Element => {
   return (
     <Link href={ROUTES.POST(post.slug)}>
       <article className="bg-[var(--color-post-bg)] h-full flex flex-col rounded-2xl shadow-[var(--shadow)] transition hover:shadow-lg hover:-translate-y-1">

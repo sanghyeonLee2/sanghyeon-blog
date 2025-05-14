@@ -1,8 +1,11 @@
 'use client';
 
-import { FallbackUIProps } from '@/types/props/errorProps';
 import { CustomError } from '@/types/api/errors';
 import { useState } from 'react';
+interface FallbackUIProps {
+  error: Error;
+  onRetry?: () => void;
+}
 
 export default function ErrorFallback({ error, onRetry }: FallbackUIProps) {
   const typedError = error as unknown as CustomError;

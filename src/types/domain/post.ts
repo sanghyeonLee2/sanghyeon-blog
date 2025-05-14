@@ -1,4 +1,3 @@
-// types/post.ts
 export interface Post {
   id: string;
   slug: string;
