@@ -1,19 +1,20 @@
+// app/layout.tsx
 import { CONFIG } from '@/constants/config';
 import '@/styles/globals.css';
 import { pretendard } from '@/fonts/fonts';
-import { cookies } from 'next/headers';
-import Header from '@/components/organisms/Header';
-import Footer from '@/components/organisms/Footer';
+import Header from '@/components/organisms/layout/Header';
+import Footer from '@/components/organisms/layout/Footer';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value === 'dark' ? 'dark' : '';
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={CONFIG.DEFAULT_LANGUAGE} className={`${pretendard.variable} ${theme}`}>
+    <html lang={CONFIG.DEFAULT_LANGUAGE} className={pretendard.variable} suppressHydrationWarning>
       <body className={`${pretendard.className} layout-wrapper`}>
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
