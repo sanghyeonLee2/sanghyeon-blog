@@ -1,17 +1,12 @@
-// components/atoms/Thumbnail.tsx
 import { DEFAULTS } from '@/constants/defaults';
 import React from 'react';
+import { ImageProps } from './types';
+import clsx from 'clsx';
 
-interface ImageProps {
-  src: string | null;
-  className?: string;
-  alt: string;
-}
-
-const Image = ({ src, className, alt }: ImageProps) => {
+const Image = ({ src = '', className, alt }: ImageProps) => {
   return (
-    <div className={`${className} overflow-hidden`}>
-      <img src={src ?? DEFAULTS.IMG_URL} alt={alt} className="w-full h-full object-cover " />
+    <div className={clsx('overflow-hidden', className)}>
+      <img src={src ?? DEFAULTS.IMG_URL} alt={alt} className="w-full h-full object-cover" />
     </div>
   );
 };
