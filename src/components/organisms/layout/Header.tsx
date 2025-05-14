@@ -5,7 +5,7 @@ import ThemeDropdown from '../../molecules/dropdown/ThemeDropdown/ThemeDropdown'
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between w-full z-50 h-18 p-content">
+    <header className="flex-center-between w-full z-50 h-18 p-content">
       <Logo />
       <ThemeDropdown />
     </header>

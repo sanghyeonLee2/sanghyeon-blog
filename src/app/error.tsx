@@ -1,6 +1,7 @@
-// app/error.tsx
 'use client';
+
 import ErrorFallback from '@/components/templates/ErrorFallback';
+
 interface ErrorPageProps {
   error: Error;
 }
