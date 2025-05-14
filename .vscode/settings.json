@@ -37,5 +37,5 @@
     "clsx\\(([^)]*)\\)", // clsx(...) 안의 클래스 추출
     "cn\\(([^)]*)\\)" // cn(...) 안의 클래스 추출 (사용 중이면)
   ],
-  "cSpell.words": ["giscus", "sanghyeon"]
+  "cSpell.words": ["giscus", "sanghyeon", "Pretendard", "clsx"]
 }

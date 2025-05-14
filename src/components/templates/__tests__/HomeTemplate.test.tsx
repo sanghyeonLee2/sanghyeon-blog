@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import HomeTemplate from '../HomeTemplate';
+import HomeTemplate from '../Home';
 import { TestProviders } from '@/tests/utils/TestProviders';
 import { getPostList } from '@/services/post/post';
 import { Post } from '@/types/domain/post';
@@ -16,8 +16,8 @@ export const mockPosts: Post[] = [
     cover: null,
     summary: 'Summary for Mock Post 1',
     tags: [
-      { id: 'tag-1', name: 'mock' },
-      { id: 'tag-2', name: 'test' },
+      { id: 'tag-1', name: 'mock', color: 'red' },
+      { id: 'tag-2', name: 'test', color: 'red' },
     ],
     published: true,
     title: 'Mock Post 1',
@@ -28,7 +28,7 @@ export const mockPosts: Post[] = [
     date: '2025-01-02',
     cover: 'https://example.com/cover.jpg',
     summary: 'Summary for Mock Post 2',
-    tags: [{ id: 'tag-3', name: 'sample' }],
+    tags: [{ id: 'tag-3', name: 'sample', color: 'red' }],
     published: true,
     title: 'Mock Post 2',
   },

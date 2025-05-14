@@ -1,6 +1,6 @@
 // components/atoms/Thumbnail.tsx
 import React, { JSX } from 'react';
-import { MultiSelectTags } from '../../types/domain/post';
+import { MultiSelectTags } from '../../../types/domain/post';
 
 const Tags = ({ tags }: { tags: MultiSelectTags[] }): JSX.Element => {
   return (

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import EmptyState from '../EmptyState';
+import EmptyState from '../common/EmptyState';
 
 describe('EmptyState', () => {
   it('기본 메시지를 렌더링한다', () => {

@@ -1,12 +1,12 @@
 'use client';
 
 import React, { JSX } from 'react';
-import Thumbnail from '../atoms/Image';
+import Thumbnail from '../../atoms/image/Image';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 import { PostItemProps } from '@/types/props/postItemProps';
-import PostContent from '../molecules/PostContent';
-import PostMeta from '../molecules/PostMeta';
+import PostContent from '../../molecules/post/PostContent';
+import PostMeta from '../../molecules/post/PostMeta';
 
 const PostItem = ({ post }: PostItemProps): JSX.Element => {
   return (
