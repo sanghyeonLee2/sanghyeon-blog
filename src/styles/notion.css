@@ -1,7 +1,10 @@
 .notion-page {
-  padding-inline: 1.25rem !important;
+  padding-inline: 0.9375rem !important;
   width: 100% !important;
   margin: 0 !important;
+}
+.notion-table-of-contents-item {
+  color: var(--color-text) !important;
 }
 
 .notion-code code {
@@ -14,7 +17,7 @@
 .notion-aside-table-of-contents {
   background-color: transparent !important;
   position: fixed !important;
-  top: 8.75rem; /* 140px */
+  top: 5.5rem;
   right: 6.5rem;
 }
 /* TOC 숨김 구간: 1100px ~ 1680px */
@@ -48,9 +51,9 @@
   color: var(--color-text) !important;
   font-family: 'Pretendard', sans-serif !important;
   font-size: 1.1rem !important;
-  transition:
-    background-color 0.3s ease-in-out,
-    color 0.3s ease-in-out !important;
+  transition-property: color, background-color !important;
+  transition-duration: 100ms !important;
+  transition-timing-function: ease-in !important;
   background-color: var(--color-article-bg) !important;
 }
 
