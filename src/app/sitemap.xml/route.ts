@@ -1,18 +1,33 @@
+// app/sitemap.xml/route.ts
 import { SITE_METADATA } from '@/constants/metaData';
 import { getPostList } from '@/services/post/post';
-import type { MetadataRoute } from 'next';
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export async function GET() {
   const posts = await getPostList();
 
-  return [
-    {
-      url: SITE_METADATA.VERCEL_DEPLOY_URL,
-      lastModified: new Date().toISOString(),
+  const urls = posts.map((post) => {
+    const loc = `${SITE_METADATA.VERCEL_DEPLOY_URL}/posts/${post.slug}`;
+    const lastmod = new Date(post.date).toISOString();
+    return `
+    <url>
+      <loc>${loc}</loc>
+      <lastmod>${lastmod}</lastmod>
+    </url>`;
+  });
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${SITE_METADATA.VERCEL_DEPLOY_URL}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </url>
+  ${urls.join('\n')}
+</urlset>`;
+
+  return new Response(xml, {
+    headers: {
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=3600', // 1시간 캐시
     },
-    ...posts.map((post) => ({
-      url: `${SITE_METADATA.VERCEL_DEPLOY_URL}/posts/${post.slug}`,
-      lastModified: post.date,
-    })),
-  ];
+  });
 }
