@@ -1,8 +1,8 @@
 'use client';
 import { Post } from '@/types/domain/post';
 import LocalErrorBoundary from '../boundaries/LocalErrorBoundary';
-import Banner from '../organisms/layout/Banner';
 import PostItem from '../organisms/post/PostItem';
+import Banner from '../molecules/ui/Banner';
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
