@@ -4,11 +4,9 @@ import { pretendard } from '@/fonts/fonts';
 import Header from '@/components/organisms/ui/Header';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import Footer from '@/components/organisms/ui/Footer';
+import { defaultMetadata } from '@/constants/metaData';
 
-export const metadata = {
-  title: 'SH.LOG',
-  description: 'Learning from building',
-};
+export const metadata = defaultMetadata;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
