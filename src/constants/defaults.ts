@@ -1,7 +1,4 @@
 export const DEFAULTS = {
-  COPY_RIGHT: '© 2025 Sanghyeon Lee. All rights reserved.',
-  LINK_TO_GITHUB: 'View on GitHub ↗',
-  MY_GITHUB_URL: 'https://github.com/sanghyeonLee2',
   TITLE: '제목 없음',
   EMPTY_STRING: '',
   PLACEHOLDER_STRING: null as string | null,
