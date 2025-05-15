@@ -1,10 +1,14 @@
-// app/layout.tsx
 import { CONFIG } from '@/constants/config';
 import '@/styles/globals.css';
 import { pretendard } from '@/fonts/fonts';
-import Header from '@/components/organisms/layout/Header';
-import Footer from '@/components/organisms/layout/Footer';
+import Header from '@/components/organisms/ui/Header';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import Footer from '@/components/organisms/ui/Footer';
+
+export const metadata = {
+  title: 'SH.LOG',
+  description: 'Learning from building',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${pretendard.className} layout-wrapper`}>
         <ThemeProvider>
           <Header />
-          {children}
+          <main className="w-full flex-grow">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
