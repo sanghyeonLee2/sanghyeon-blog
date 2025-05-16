@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${pretendard.className} layout-wrapper`}>
         <ThemeProvider>
           <Header />
-          <main className="w-full flex-grow px-content">{children}</main>
+          <main className="pt-18 w-full flex-grow px-content">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

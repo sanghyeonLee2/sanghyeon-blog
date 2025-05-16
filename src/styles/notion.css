@@ -51,7 +51,7 @@
   color: var(--color-text) !important;
   font-family: 'Pretendard', sans-serif !important;
   font-size: 1.1rem !important;
-  transition-property: color, background-color !important;
+  transition-property: background-color !important;
   transition-duration: 100ms !important;
   transition-timing-function: ease-in !important;
   background-color: var(--color-article-bg) !important;

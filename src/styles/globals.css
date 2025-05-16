@@ -21,7 +21,7 @@
 
   html,
   body {
-    transition-property: color, background-color;
+    transition-property: background-color;
     transition-duration: 100ms;
     transition-timing-function: ease-in;
   }
