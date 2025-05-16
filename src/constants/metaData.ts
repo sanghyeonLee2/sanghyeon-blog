@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const SITE_METADATA = {
   BLOG_INTRO: 'SH.LOG',
-  BLOG_DESCRIPTION: 'Learning from building',
+  BLOG_DESCRIPTION: '기록하며 성장합니다',
   COPY_RIGHT: '© 2025 Sanghyeon Lee. All rights reserved.',
   MY_GITHUB_URL: 'https://github.com/sanghyeonLee2',
   VERCEL_DEPLOY_URL: 'https://sanghyeon-blog.vercel.app',
