@@ -1,13 +1,24 @@
-type Props = {
-  text: string;
-  onClick?: () => void;
-};
+'use client';
 
-export default function Button({ text, onClick }: Props) {
+import clsx from 'clsx';
+import { ButtonProps } from './Button.types';
+
+export default function Button({
+  text,
+  onClick,
+  className,
+  type = 'button',
+  ...rest
+}: ButtonProps) {
   return (
     <button
+      type={type}
       onClick={onClick}
-      className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600"
+      className={clsx(
+        'hover:opacity-85 text-gray-100 text-base font-medium px-4 py-2 rounded bg-[var(--color-button-bg)] transition',
+        className,
+      )}
+      {...rest}
     >
       {text}
     </button>

@@ -1,4 +1,3 @@
-// app/posts/[slug]/page.tsx
 import { getPostBySlug } from '@/services/post/post';
 import 'react-notion-x/src/styles.css'; // 기본 스타일
 import 'prismjs/themes/prism-tomorrow.css'; // 코드 블록 스타일 (선택)
