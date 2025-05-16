@@ -42,7 +42,7 @@ export default function NotionPost({ additionalPostData, recordMap }: PostRecord
       />
       <Button
         text="목록으로 돌아가기"
-        className="mb-6 w-full"
+        className="my-12 w-full"
         onClick={() => router.push(ROUTES.HOME)}
       />
       <Giscus />

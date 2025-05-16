@@ -12,7 +12,7 @@ interface PostMetaProps {
 const PostMeta = ({ tags, date }: PostMetaProps): JSX.Element => {
   return (
     <div>
-      <p className="my-1.25 text-xs">{date}</p>
+      <p className="my-1.25 text-sm">{date}</p>
       <Tags tags={tags} />
     </div>
   );
