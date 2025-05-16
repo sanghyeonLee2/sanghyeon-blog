@@ -3,8 +3,11 @@
   --color-bg-hover: rgba(0, 0, 0, 0.05);
   --color-text: #374151;
   --color-primary: #f1f5f9;
-  --color-accent: #e0f2fe;
-  --color-accent-text: #1e293b;
+
+  --color-accent: #6b7280;
+
+  --color-button-bg: #6b7280;
+
   --color-post-bg: #f8f9fa;
   --color-skeleton: #e5e7eb;
 
@@ -47,10 +50,13 @@ html.dark {
   --color-bg: #0f172a;
   --color-bg-hover: rgba(255, 255, 255, 0.08);
   --color-text: #e2e8f0;
-  --color-primary: #1e293b;
-  --color-accent: #1e3a8a;
 
-  --color-accent-text: #f1f5f9;
+  --color-primary: #1e293b;
+
+  --color-accent: #9ca3af;
+
+  --color-button-bg: #9ca3af;
+
   --color-post-bg: #1e293b;
   --color-skeleton: #1f2937;
   --color-dropdown-bg: #2c2f36;
