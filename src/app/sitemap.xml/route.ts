@@ -1,4 +1,3 @@
-// app/sitemap.xml/route.ts
 import { SITE_METADATA } from '@/constants/metaData';
 import { getPostList } from '@/services/post/post';
 
@@ -7,7 +6,7 @@ export async function GET() {
 
   const urls = posts.map((post) => {
     const loc = `${SITE_METADATA.VERCEL_DEPLOY_URL}/posts/${post.slug}`;
-    const lastmod = new Date(post.date).toISOString();
+    const lastmod = new Date(post.date ?? new Date()).toISOString();
     return `
     <url>
       <loc>${loc}</loc>
