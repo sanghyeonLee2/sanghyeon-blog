@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import HomeTemplate from '../Home';
-import { TestProviders } from '@/tests/utils/TestProviders';
 import { getPostList } from '@/services/post/post';
 import { Post } from '@/types/domain/post';
 
@@ -46,7 +45,7 @@ describe('HomeTemplate', () => {
   });
 
   it('게시글 목록이 API 응답으로 렌더링되어야 함', async () => {
-    render(<HomeTemplate posts={mockPosts} />, { wrapper: TestProviders });
+    render(<HomeTemplate posts={mockPosts} />);
     expect(await screen.findByText('Mock Post 1')).toBeInTheDocument();
     expect(await screen.findByText('Mock Post 2')).toBeInTheDocument();
   });
