@@ -6,7 +6,8 @@
 
   --color-accent: #6b7280;
 
-  --color-button-bg: #6b7280;
+  --color-button-bg: #e5e7eb;
+  --color-button-text: #374151;
 
   --color-post-bg: #f8f9fa;
   --color-skeleton: #e5e7eb;
@@ -55,7 +56,8 @@ html.dark {
 
   --color-accent: #9ca3af;
 
-  --color-button-bg: #9ca3af;
+  --color-button-bg: #374151;
+  --color-button-text: #e5e7eb;
 
   --color-post-bg: #1e293b;
   --color-skeleton: #1f2937;

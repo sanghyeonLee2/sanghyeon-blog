@@ -20,21 +20,19 @@
   top: 5.5rem;
   right: 6.5rem;
 }
-/* TOC 숨김 구간: 1100px ~ 1680px */
+
 @media (min-width: 1100px) {
   .notion-aside {
     display: none !important;
   }
 }
 
-/* TOC 표시 구간: 1680px 이상 */
 @media (min-width: 1680px) {
   .notion-aside {
     display: flex !important;
   }
 }
 
-/* 페이지 구조 정렬 수정 */
 @media (min-width: 1300px) {
   .notion-page-content-has-aside {
     display: block !important;
@@ -58,5 +56,5 @@
 }
 
 html.dark .notion {
-  color: var(--color-text) !important; /* 이미 var로 바뀌니까 여기선 값은 안 바꿔도 됨 */
+  color: var(--color-text) !important;
 }
