@@ -1,4 +1,3 @@
-// .eslintrc.cjs
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -16,6 +15,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
+    'next/core-web-vitals',
   ],
   settings: {
     react: {
