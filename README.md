@@ -10,10 +10,6 @@ Next.js 기반으로 제작된 개인 블로그입니다. Notion을 Headless CMS
   - [목차](#목차)
   - [배포 주소](#배포-주소)
   - [기술 스택](#기술-스택)
-    - [프레임워크 \& 언어](#프레임워크--언어)
-    - [스타일링](#스타일링)
-    - [데이터 \& API](#데이터--api)
-    - [기타](#기타)
   - [폴더 구조](#폴더-구조)
   - [기능](#기능)
   - [스크립트](#스크립트)
@@ -27,46 +23,50 @@ Next.js 기반으로 제작된 개인 블로그입니다. Notion을 Headless CMS
 
 ## 기술 스택
 
-### 프레임워크 & 언어
-
 - **Next.js 15**
 - **TypeScript**
 - **React 19**
-
-### 스타일링
-
 - **Tailwind CSS v4**
-- CSS 변수 기반 다크 모드 지원
-
-### 데이터 & API
-
-- **Notion API** (via [`notion-client`](https://github.com/NotionX/react-notion-x))
+- **notion-client** Notion DB에서 게시글 목록 및 메타데이터 패칭
 - **react-notion-x** 렌더링 커스텀
-
-### 기타
-
-- **next-themes**: 시스템/다크/라이트 테마 전환
-- **clsx**: 조건부 className 처리
-- **lucide-react**: 아이콘 사용
+- **next-themes** 시스템/다크/라이트 테마 전환
+- **lucide-react** 아이콘 사용
 
 ---
 
 ## 폴더 구조
 
-<pre>
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # 전체 레이아웃
-│   ├── page.tsx            # 홈 페이지
-│   ├── posts/              # 게시글 상세 페이지
-│   └── global-error.tsx    # 전역 에러 처리
-├── components/             # 컴포넌트 (Atoms/Molecules/Organisms 등)
-├── constants/              # 상수 정의
-├── hooks/                  # 커스텀 훅
-├── services/               # API 통신 관련 로직
-├── styles/                 # 전역 스타일 (CSS 변수, reset 등)
-├── types/                  # 타입 정의
-└── utils/                  # 유틸 함수
-</pre>
+```bash
+src/
+├── app/                             # Next.js App Router 디렉토리
+│   ├── layout.tsx                   # 루트 레이아웃
+│   ├── page.tsx                     # 메인 페이지
+│   ├── posts/                       # 게시글 상세 페이지 라우팅
+│   ├── global-error.tsx            # 전역 에러 처리
+│   ├── not-found.tsx               # 404 페이지
+│   ├── robot.ts                    # robots.txt 설정
+│   ├── sitemap.xml                 # 사이트맵 (정적 파일)
+│   ├── favicon.ico, og 이미지 등   # 메타 및 아이콘 관련 파일
+├── components/                     # UI 컴포넌트 (Atomic Design 기반)
+│   ├── atoms/
+│   ├── molecules/
+│   ├── organisms/
+│   ├── templates/                  # 페이지 단위 템플릿
+│   └── providers/                  # 테마/상태 등 전역 Provider
+├── constants/                      # 상수 정의 (메시지, config 등)
+├── fonts/                          # 웹폰트 관련 설정
+├── hooks/                          # 커스텀 훅 모음
+├── lib/                            # 기능 단위 모듈 (도메인/유틸 중심)
+│   ├── api/                        # API 요청 유틸
+│   ├── notion/                     # Notion 관련 유틸
+│   ├── ui/                         # UI 관련 기능 유틸
+│   └── utils/                      # 일반 유틸 함수
+├── services/                       # 서버 API 호출 로직 (데이터 fetch 등)
+├── styles/                         # 글로벌 스타일 (reset, 변수 등)
+├── tests/                          # 테스트 코드
+├── types/                          # 전역 타입 정의
+└── utils/                          # 범용 유틸 함수
+```
 
 ---
 
