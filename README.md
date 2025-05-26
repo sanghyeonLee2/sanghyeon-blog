@@ -1,6 +1,6 @@
 # 블로그 프로젝트
 
-Next.js 기반으로 제작된 개인 블로그입니다. Notion을 Headless CMS로 활용하고 있으며, 다크 모드와 태그 기반 필터링 기능 등을 제공합니다.
+Next.js 기반으로 제작된 개인 블로그입니다. Notion을 Headless CMS로 활용하고 있으며, 다크 모드 기능을 제공합니다.
 
 ---
 
@@ -75,9 +75,7 @@ Next.js 기반으로 제작된 개인 블로그입니다. Notion을 Headless CMS
 - Notion 기반 콘텐츠 렌더링
 - 시스템 테마 감지 및 테마 토글
 - 반응형 디자인
-- 태그 기반 포스트 필터링
 - 커버 이미지, 썸네일 지원
-- 코드 블럭 및 컬렉션 렌더링 지원
 
 ---
 
@@ -92,12 +90,6 @@ npm run build
 
 # 빌드된 앱 실행
 npm run start
-
-# ESLint 검사
-npm run lint
-
-# Prettier 포맷팅
-npm run format
 ```
 
 ---
