@@ -1,14 +1,10 @@
 import { CONFIG } from '@/constants/config';
 import type { HttpMethod, FetcherOptions } from '@/types/api/fetchers';
-import { parseErrorResponse } from '../../utils/parseErrorResponse';
-import { isCritical } from '@/utils/typeGuards';
-import showErrorToast from '../../ui/showErrorToast';
 import { createCustomError } from '../../utils/createCustomError';
-import { checkApiEnv } from '../../utils/checkApiEnv';
 import { buildHeaders } from '../../utils/buildHeaders';
-import { buildURL } from '../../utils/buildURL';
 
-const { token: NOTION_TOKEN } = checkApiEnv();
+const NOTION_TOKEN = process.env.NEXT_PUBLIC_NOTION_TOKEN;
+const NOTION_API_URL = process.env.NEXT_PUBLIC_NOTION_API_URL;
 
 async function request<T>(
   method: HttpMethod,
@@ -28,18 +24,16 @@ async function request<T>(
   };
 
   const timeoutId = setTimeout(() => controller.abort(), timeout);
+  const buildURL = `${NOTION_API_URL}${url}`;
 
   try {
-    const res = await fetch(buildURL(url), fetchOptions);
+    const res = await fetch(buildURL, fetchOptions);
 
     if (!res.ok) {
-      const parsedError = await parseErrorResponse(res);
+      const errorBody = await res.json().catch(() => ({}));
+      const rawMessage = errorBody.message;
 
-      if (isCritical(parsedError)) {
-        throw createCustomError(parsedError.status, parsedError.message);
-      }
-
-      showErrorToast(parsedError.status);
+      throw createCustomError(res.status, rawMessage);
     }
 
     return await res.json();
