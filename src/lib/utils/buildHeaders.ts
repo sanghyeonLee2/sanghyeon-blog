@@ -1,4 +1,7 @@
-export const buildHeaders = (token: string, customHeaders?: HeadersInit): HeadersInit => ({
+export const buildHeaders = (
+  token: string | undefined,
+  customHeaders?: HeadersInit,
+): HeadersInit => ({
   'Content-Type': 'application/json',
   Accept: 'application/json',
   Authorization: `Bearer ${token}`,
