@@ -10,13 +10,6 @@ export function isCustomError(error: unknown): error is CustomError {
   );
 }
 
-export function isCritical(error: unknown): boolean {
-  if (!isCustomError(error)) return true;
-
-  const status = error.status;
-  return status === 500 || status === 403;
-}
-
 export function getCoverUrl(coverFile: (File | ExternalFile)[]): string | null {
   if (coverFile.length === 0) {
     return null;
