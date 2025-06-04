@@ -49,4 +49,7 @@ export const defaultMetadata: Metadata = {
     icon: '/favicon.ico',
     apple: '/apple-icon.png',
   },
+  verification: {
+    google: 'bzE95RuElyHsQLEvwBm1xD0Ana4Mc8pPb1qmKwmSkP4',
+  },
 };
