@@ -6,6 +6,10 @@
 .notion-table-of-contents-item {
   color: var(--color-text) !important;
 }
+.notion-asset-caption {
+  color: #6b7280 !important;
+  padding-top: 0 !important;
+}
 
 .notion-code code {
   white-space: pre-wrap !important;
@@ -17,8 +21,14 @@
 .notion-aside-table-of-contents {
   background-color: transparent !important;
   position: fixed !important;
+  width: 5rem;
   top: 5.5rem;
-  right: 6.5rem;
+  right: 10rem;
+}
+.notion-table-of-contents-item-body {
+  white-space: normal !important;
+  word-break: break-word !important;
+  line-height: 1.1 !important;
 }
 
 @media (min-width: 1100px) {
@@ -33,7 +43,7 @@
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
   .notion-page-content-has-aside {
     display: block !important;
     width: 100% !important;
