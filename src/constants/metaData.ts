@@ -36,18 +36,18 @@ export const defaultMetadata: Metadata = {
     title: 'SH.LOG',
     description: 'Learning from building',
     url: SITE_METADATA.VERCEL_DEPLOY_URL,
-    images: ['/opengraph-image.png'],
+    images: [`${SITE_METADATA.VERCEL_DEPLOY_URL}/opengraph-image.png`],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SH.LOG',
     description: 'Learning from building',
-    images: ['/opengraph-image.png'],
+    images: [`${SITE_METADATA.VERCEL_DEPLOY_URL}/opengraph-image.png`],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.png',
+    icon: `${SITE_METADATA.VERCEL_DEPLOY_URL}/favicon.ico`,
+    apple: `${SITE_METADATA.VERCEL_DEPLOY_URL}/apple-icon.png`,
   },
   verification: {
     google: 'bzE95RuElyHsQLEvwBm1xD0Ana4Mc8pPb1qmKwmSkP4',
