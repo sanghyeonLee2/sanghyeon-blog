@@ -18,7 +18,6 @@ export default function NotionPost({ additionalPostData, recordMap }: PostRecord
   const router = useRouter();
   return (
     <div className="pb-20">
-      {/* <CoverImage alt={'썸네일'} src={additionalPostData.cover} className="h-[30vh]" /> */}
       <NotionRenderer
         fullPage={true}
         rootPageId={additionalPostData.id}
@@ -35,6 +34,7 @@ export default function NotionPost({ additionalPostData, recordMap }: PostRecord
         pageHeader={
           <NotionPostHeader
             tags={additionalPostData.tags}
+            cover={additionalPostData.cover}
             title={additionalPostData.title}
             postedDate={additionalPostData.postedDate}
           />
