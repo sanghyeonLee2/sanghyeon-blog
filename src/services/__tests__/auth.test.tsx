@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { getPostList } from '@/services/post/post';
+import { getPostList } from '@/services/blogPost';
 
 jest.mock('@/services/post', () => ({
   getPostList: jest.fn(),
