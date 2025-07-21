@@ -15,7 +15,7 @@ export async function generateStaticParams(): Promise<PostSlugParam[]> {
   return getPublishedSlugParams(posts);
 }
 
-export default async function PostPage({ params }: { params: PostSlugParam }) {
+export default async function PostPage({ params }: { params: Promise<PostSlugParam> }) {
   const { slug } = await params;
   const { recordMap, additionalPostData } = await getPostBySlug(slug);
   return <NotionPost recordMap={recordMap} additionalPostData={additionalPostData} />;
