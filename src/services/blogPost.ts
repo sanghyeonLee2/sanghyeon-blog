@@ -1,14 +1,14 @@
 import { API_URLS } from '@/constants/apiUrls';
-import { httpClient } from '@/lib/api/client/httpClient';
+import { httpClient } from '@/lib/api/httpClient';
 import { NotionPostsResponse, Post } from '@/types/domain/post';
 import { cache } from 'react';
-import { notion } from '@/lib/notion/notionClient';
 import { PostRecordMap } from '@/types/api/response';
 import { notFound } from 'next/navigation';
-import { createCustomError } from '@/lib/utils/createCustomError';
+import CustomError from '@/lib/error/CustomError';
 import { findPostBySlug, isNotionNotFoundError, parsePost } from './utils';
-import { withTimeout } from '@/lib/utils/withTimeout';
-import { CONFIG } from '@/constants/config';
+import { NotionAPI } from 'notion-client';
+
+export const notion = new NotionAPI();
 
 export const getPostList = cache(async (): Promise<Post[]> => {
   const { results } = await httpClient.post<NotionPostsResponse>(API_URLS.POST.ALL);
@@ -34,9 +34,9 @@ export const getPostBySlug = cache(async (slug: string): Promise<PostRecordMap> 
 
 export const getNotionPostPage = async (id: string) => {
   try {
-    return await withTimeout(notion.getPage(id), CONFIG.DEFAULT_TIMEOUT);
+    return await notion.getPage(id);
   } catch (err) {
     if (isNotionNotFoundError(err)) notFound();
-    throw createCustomError(500, err instanceof Error ? err.message : undefined);
+    throw new CustomError(500, err instanceof Error ? err.message : undefined);
   }
 };
