@@ -1,9 +1,10 @@
 import type { HttpMethod } from '@/types/api/fetchers';
 import CustomError from '../error/CustomError';
 import { buildHeaders, getUnknownErrorMessage } from '@/lib/utils';
+import { CONFIG } from '@/constants/config';
 
 const NOTION_API_URL = process.env.NEXT_PUBLIC_NOTION_API_URL;
-const DEFAULT_TIMEOUT = Number(process.env.VITE_DEFAULT_TIMEOUT) || 5000;
+const DEFAULT_TIMEOUT = CONFIG.DEFAULT_TIMEOUT;
 
 async function request<T>(
   method: HttpMethod,
