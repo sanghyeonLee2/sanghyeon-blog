@@ -11,7 +11,7 @@ export default function Home({ posts }: { posts: Post[] }) {
       {posts.length === 0 ? (
         <EmptyState />
       ) : (
-        <div className="pb-5rem grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4.75">
+        <div className="pb-5rem grid grid-cols-1 gap-5">
           {posts?.map((post) => <PostItem post={post} key={post.id} />)}
         </div>
       )}

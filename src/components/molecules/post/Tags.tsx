@@ -4,18 +4,17 @@ import { MultiSelectTags } from '../../../types/domain/post';
 
 const Tags = ({ tags }: { tags: MultiSelectTags[] }): JSX.Element => {
   return (
-    <div className="flex gap-1.25 flex-wrap h-16 py-3">
+    <div className="flex gap-1.5 flex-wrap">
       {tags.map((tag) => (
         <span
           key={tag.id}
           className={`
-            h-4.5
             content-center
             cursor-pointer
     shadow-[var(--shadow)]
     hover-opacity
-    text-[0.65rem]
-    px-1.25  rounded
+    text-[0.75rem]
+    px-2 py-0.25  rounded
   `}
           style={{
             backgroundColor: `var(--color-tag-${tag.color}-bg)`,
