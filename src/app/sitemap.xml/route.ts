@@ -1,5 +1,5 @@
 import { SITE_METADATA } from '@/constants/metaData';
-import { getPostList } from '@/services/post/post';
+import { getPostList } from '@/services/blogPost';
 
 export async function GET() {
   const posts = await getPostList();
