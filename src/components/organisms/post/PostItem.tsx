@@ -15,8 +15,8 @@ const PostItem = ({ post }: { post: Post }): JSX.Element => {
       className="rounded-2xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300 ease-in-out p-4 -mx-4 flex sm:flex-row flex-col-reverse gap-4 justify-between sm:items-center"
     >
       <div className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold line-clamp-2">{post.title}</h2>
-        <p className="text-sm text-muted-foreground line-clamp-2">{post.summary}</p>
+        <h2 className="text-2xl font-bold line-clamp-2">{post.title}</h2>
+        <p className="text-sm line-clamp-1">{post.summary}</p>
         <p className="text-sm text-gray-400">{post.date}</p>
         <Tags tags={post.tags} />
       </div>
