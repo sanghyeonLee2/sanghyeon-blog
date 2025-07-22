@@ -6,7 +6,7 @@ import { getPostList } from '@/services/blogPost';
 import { getPublishedSlugParams } from '@/services/utils';
 import type { PostSlugParam } from '@/types/domain/post';
 
-export const revalidate = 1800;
+export const revalidate = 3000;
 
 export const dynamicParams = true;
 
