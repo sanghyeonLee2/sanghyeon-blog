@@ -6,14 +6,13 @@ import { notFound } from 'next/navigation';
 import CustomError from '@/lib/error/CustomError';
 import { findPostBySlug, isNotionNotFoundError, parsePost } from './utils';
 import { NotionAPI } from 'notion-client';
-import { cache } from 'react';
 
 export const notion = new NotionAPI();
 
-export const getPostList = cache(async (): Promise<Post[]> => {
+export const getPostList = async (): Promise<Post[]> => {
   const { results } = await httpClient.post<NotionPostsResponse>(API_URLS.POST.ALL);
   return results.map(parsePost).filter((post) => post.published);
-});
+};
 
 export const getPostBySlug = async (slug: string): Promise<PostRecordMap> => {
   const posts = await getPostList();
