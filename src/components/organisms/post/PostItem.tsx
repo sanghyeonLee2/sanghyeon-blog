@@ -15,15 +15,16 @@ const PostItem = ({ post }: { post: Post }): JSX.Element => {
       className="rounded-2xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300 ease-in-out p-4 -mx-4 flex sm:flex-row flex-col-reverse gap-4 justify-between sm:items-center"
     >
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl font-bold line-clamp-2">{post.title}</h2>
-        <p className="text-sm line-clamp-1">{post.summary}</p>
+        <h2 className="line-clamp-2">{post.title}</h2>
+        <p className="text-sm line-clamp-1 font-light">{post.summary}</p>
         <p className="text-sm text-gray-400">{post.date}</p>
         <Tags tags={post.tags} />
       </div>
       <Thumbnail
         alt="커버이미지"
         src={post.cover ?? DEFAULTS.IMG_URL}
-        className="aspect-[3/2] w-full rounded-2xl sm:max-w-45 backdrop-blur-md border border-white/10 shadow-[var(--shadow)]"
+        wrapClassName="aspect-[3/2] w-full rounded-2xl sm:max-w-45 backdrop-blur-md border border-white/10 shadow-[var(--shadow)]"
+        className="object-cover"
       />
     </Link>
   );
