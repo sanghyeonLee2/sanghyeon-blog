@@ -10,7 +10,9 @@
   color: #6b7280 !important;
   padding-top: 0 !important;
 }
-
+.medium-zoom-image {
+  box-shadow: var(--shadow) !important;
+}
 .notion-code code {
   white-space: pre-wrap !important;
 }
