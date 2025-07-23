@@ -1,26 +1,31 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-type UseLoadImageReturn = {
-  setLoadSuccess: () => void;
-  loaded: boolean;
-  imgRef: React.RefObject<HTMLImageElement | null>;
-};
-
-const useImageLoad = (): UseLoadImageReturn => {
+const useImageLoad = (src?: string) => {
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  useLayoutEffect(() => {
-    if (imgRef.current?.complete) {
-      setLoaded(true);
-    }
-  }, []);
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img) return;
 
-  return {
-    setLoadSuccess: () => setLoaded(true),
-    loaded,
-    imgRef,
-  };
+    const handleLoad = () => setLoaded(true);
+    const handleError = () => setLoaded(false);
+
+    if (img.complete) {
+      setLoaded(true);
+      return;
+    }
+
+    img.addEventListener('load', handleLoad);
+    img.addEventListener('error', handleError);
+
+    return () => {
+      img.removeEventListener('load', handleLoad);
+      img.removeEventListener('error', handleError);
+    };
+  }, [src]);
+
+  return { loaded, imgRef };
 };
 
 export default useImageLoad;
