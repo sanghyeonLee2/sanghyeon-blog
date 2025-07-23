@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic';
 import { NotionRenderer } from 'react-notion-x';
 import { PostRecordMap } from '@/types/api/response';
-import NotionImage from '../molecules/image/NotionImage';
 import NotionPostHeader from '../molecules/post/NotionPostHeader';
 import Giscus from '../organisms/post/Giscus';
 import Button from '../atoms/button/Button';
@@ -28,7 +27,6 @@ export default function NotionPost({ additionalPostData, recordMap }: PostRecord
         showTableOfContents={true}
         components={{
           Code,
-          Image: NotionImage,
           Collection: () => null,
         }}
         pageHeader={
