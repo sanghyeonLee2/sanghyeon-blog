@@ -18,14 +18,18 @@
     color: var(--color-text);
     @apply antialiased;
   }
-
   html,
   body {
     transition-property: background-color;
     transition-duration: 100ms;
     transition-timing-function: ease-in;
   }
-
+  h1 {
+    @apply text-3xl sm:text-4xl font-bold;
+  }
+  h2 {
+    @apply text-xl sm:text-2xl font-bold;
+  }
   *,
   *::before,
   *::after {
