@@ -5,18 +5,20 @@ import { CONFIG } from '@/constants/config';
 
 const NOTION_API_URL = process.env.NEXT_PUBLIC_NOTION_API_URL;
 const DEFAULT_TIMEOUT = CONFIG.DEFAULT_TIMEOUT;
+interface RequestOptions {
+  method: HttpMethod;
+  endpoint: string;
+  revalidate?: number | false; // revalidate 옵션
+}
 
-async function request<T>(
-  method: HttpMethod,
-  endpoint: string,
-  //data?: unknown,
-): Promise<T> {
+async function request<T>({ method, endpoint, revalidate }: RequestOptions): Promise<T> {
   const controller = new AbortController();
 
   const fetchOptions: RequestInit = {
     method,
     headers: buildHeaders(),
     signal: controller.signal,
+    ...(revalidate !== undefined && { next: { revalidate } }),
     //body: data ? JSON.stringify(data) : undefined,
   };
 
