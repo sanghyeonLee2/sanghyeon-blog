@@ -1,10 +1,10 @@
 'use client';
 
-import { DEFAULTS } from '@/constants/defaults';
 import React from 'react';
 import clsx from 'clsx';
 import useImageLoad from '@/hooks/useImageLoad';
 import SkeletonImage from '@/components/atoms/image/SkeletonImage';
+import useImageFallback from '@/hooks/useImageFallback';
 export interface ImageProps {
   src: string;
   className?: string;
@@ -14,13 +14,15 @@ export interface ImageProps {
 
 const Image = ({ src = '', className, wrapClassName, alt }: ImageProps) => {
   const { loaded, imgRef } = useImageLoad(src);
+  const { presignedUrl, setPresignedUrl } = useImageFallback(src);
 
   return (
     <div className={clsx('relative overflow-hidden', wrapClassName)}>
       {!loaded && <SkeletonImage />}
       <img
         ref={imgRef}
-        src={src ?? DEFAULTS.IMG_URL}
+        src={presignedUrl}
+        onError={setPresignedUrl}
         alt={alt}
         className={clsx(
           'w-full h-full transition-opacity duration-300',
