@@ -1,14 +1,12 @@
-import type { HttpMethod } from '@/types/api/fetchers';
+import type { HttpMethod, MethodParams } from '@/types/api/fetchers';
 import CustomError from '../error/CustomError';
 import { buildHeaders, getUnknownErrorMessage } from '@/lib/utils';
 import { CONFIG } from '@/constants/config';
 
 const NOTION_API_URL = process.env.NEXT_PUBLIC_NOTION_API_URL;
 const DEFAULT_TIMEOUT = CONFIG.DEFAULT_TIMEOUT;
-interface RequestOptions {
+interface RequestOptions extends MethodParams {
   method: HttpMethod;
-  endpoint: string;
-  revalidate?: number | false; // revalidate 옵션
 }
 
 async function request<T>({ method, endpoint, revalidate }: RequestOptions): Promise<T> {
@@ -24,6 +22,7 @@ async function request<T>({ method, endpoint, revalidate }: RequestOptions): Pro
 
   const timeoutId = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT);
   const buildURL = `${NOTION_API_URL}${endpoint}`;
+  console.log('Request URL:', buildURL);
 
   try {
     const res = await fetch(buildURL, fetchOptions);
