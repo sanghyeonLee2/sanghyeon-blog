@@ -10,7 +10,7 @@ import { NotionAPI } from 'notion-client';
 export const notion = new NotionAPI();
 
 export const getPostList = async (): Promise<Post[]> => {
-  const { results } = await httpClient.post<NotionPostsResponse>(API_URLS.POST.ALL);
+  const { results } = await httpClient.post<NotionPostsResponse>({ endpoint: API_URLS.POST.ALL });
   return results.map(parsePost).filter((post) => post.published);
 };
 
