@@ -1,7 +1,6 @@
 'use client';
 import { Post } from '@/types/domain/post';
 import PostItem from '../organisms/post/PostItem';
-import Banner from '../molecules/ui/Banner';
 import EmptyState from '../molecules/common/EmptyState';
 
 export default function Home({ posts }: { posts: Post[] }) {
