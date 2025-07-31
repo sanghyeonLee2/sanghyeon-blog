@@ -1,5 +1,6 @@
 'use client';
-
+import { DEFAULTS } from '@/constants/defaults';
+import { API_URLS } from '@/constants/apiUrls';
 import React from 'react';
 import clsx from 'clsx';
 import useImageLoad from '@/hooks/useImageLoad';
@@ -21,7 +22,7 @@ const Image = ({ src = '', className, wrapClassName, alt }: ImageProps) => {
       {!loaded && <SkeletonImage />}
       <img
         ref={imgRef}
-        src={presignedUrl}
+        src={API_URLS.GET.IMAGE_PROXY(src ?? DEFAULTS.IMG_URL)}
         onError={setPresignedUrl}
         alt={alt}
         className={clsx(
