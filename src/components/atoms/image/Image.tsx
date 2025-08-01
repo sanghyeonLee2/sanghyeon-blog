@@ -1,11 +1,11 @@
 'use client';
-import { DEFAULTS } from '@/constants/defaults';
-import { API_URLS } from '@/constants/apiUrls';
+
 import React from 'react';
 import clsx from 'clsx';
 import useImageLoad from '@/hooks/useImageLoad';
 import SkeletonImage from '@/components/atoms/image/SkeletonImage';
 import useImageFallback from '@/hooks/useImageFallback';
+
 export interface ImageProps {
   src: string;
   className?: string;
@@ -21,8 +21,9 @@ const Image = ({ src = '', className, wrapClassName, alt }: ImageProps) => {
     <div className={clsx('relative overflow-hidden', wrapClassName)}>
       {!loaded && <SkeletonImage />}
       <img
+        key={presignedUrl} // presignedUrl이 바뀌면 강제 리렌더
         ref={imgRef}
-        src={API_URLS.GET.IMAGE_PROXY(src ?? DEFAULTS.IMG_URL)}
+        src={presignedUrl}
         onError={setPresignedUrl}
         alt={alt}
         className={clsx(
