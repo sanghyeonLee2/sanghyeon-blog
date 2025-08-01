@@ -7,12 +7,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const res = await fetch(imageUrl, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-      },
-    });
+    const res = await fetch(imageUrl);
 
     if (!res.ok) {
       console.error(`Image fetch failed: ${res.status} ${res.statusText}`);
@@ -26,9 +21,9 @@ export async function GET(req: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': contentType,
-        'Cache-Control': 'public, max-age=86400, immutable', // 하루 캐싱
-        'Content-Length': imageBuffer.byteLength.toString(), // 명시적으로 설정 (성능 향상)
-        'Access-Control-Allow-Origin': '*', // 필요 시 외부 접근 허용
+        'Cache-Control': 'public, max-age=86400, immutable',
+        'Content-Length': imageBuffer.byteLength.toString(),
+        'Access-Control-Allow-Origin': '*',
       },
     });
   } catch (error) {
