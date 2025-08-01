@@ -21,7 +21,7 @@ const Image = ({ src = '', className, wrapClassName, alt }: ImageProps) => {
     <div className={clsx('relative overflow-hidden', wrapClassName)}>
       {!loaded && <SkeletonImage />}
       <img
-        key={presignedUrl} // presignedUrl이 바뀌면 강제 리렌더
+        key={presignedUrl}
         ref={imgRef}
         src={presignedUrl}
         onError={setPresignedUrl}
