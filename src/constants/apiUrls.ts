@@ -5,6 +5,7 @@ export const API_URLS = {
     ALL: `/databases/${NOTION_DATABASE_ID}/query`,
   },
   GET: {
-    IMAGE_PROXY: (url: string) => `/api/image-proxy?url=${encodeURIComponent(url)}`,
+    IMAGE_PROXY: (url: string) =>
+      `/api/image-proxy?url=${encodeURIComponent(url)}&ts=${Date.now()}`,
   },
 };
