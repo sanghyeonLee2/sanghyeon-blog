@@ -3,17 +3,16 @@ import { DEFAULTS } from '@/constants/defaults';
 import { API_URLS } from '@/constants/apiUrls';
 
 const useImageFallback = (src?: string) => {
-  const [presignedUrl, setPresignedUrl] = useState(src ?? DEFAULTS.IMG_URL);
-  const [isFallback, setIsFallback] = useState(false);
+  const [presignedUrl, setPresignedUrl] = useState(DEFAULTS.IMG_URL);
 
   useEffect(() => {
-    if (isFallback) {
-      setPresignedUrl(API_URLS.GET.IMAGE_PROXY(DEFAULTS.IMG_URL));
+    if (src) {
+      setPresignedUrl(src);
     }
-  }, [isFallback]);
+  }, [src]);
 
   const handleError = () => {
-    setIsFallback(true);
+    setPresignedUrl(API_URLS.GET.IMAGE_PROXY(DEFAULTS.IMG_URL));
   };
 
   return {
