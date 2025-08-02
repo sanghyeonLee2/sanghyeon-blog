@@ -22,7 +22,6 @@ async function request<T>({ method, endpoint, revalidate }: RequestOptions): Pro
 
   const timeoutId = setTimeout(() => controller.abort(), DEFAULT_TIMEOUT);
   const buildURL = `${NOTION_API_URL}${endpoint}`;
-  console.log('Request URL:', buildURL);
 
   try {
     const res = await fetch(buildURL, fetchOptions);
