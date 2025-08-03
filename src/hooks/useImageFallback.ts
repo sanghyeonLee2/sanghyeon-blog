@@ -7,7 +7,7 @@ const useImageFallback = (src?: string) => {
 
   useEffect(() => {
     if (src) {
-      setPresignedUrl(src);
+      setPresignedUrl(API_URLS.GET.IMAGE_PROXY(src));
     }
   }, [src]);
 
