@@ -12,6 +12,8 @@ const useImageFallback = (src?: string) => {
   }, [src]);
 
   const handleError = () => {
+    console.error(`Image load failed for ${src}. Falling back to default image.`);
+
     setPresignedUrl(API_URLS.GET.IMAGE_PROXY(DEFAULTS.IMG_URL));
   };
 

@@ -32,6 +32,7 @@ async function request<T>({ method, endpoint, revalidate }: RequestOptions): Pro
 
       throw new CustomError(res.status, rawMessage);
     }
+    console.log(`Request to ${buildURL} completed successfully.`);
 
     return await res.json();
   } catch (err: unknown) {
