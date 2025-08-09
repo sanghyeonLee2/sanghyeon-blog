@@ -7,7 +7,11 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const res = await fetch(imageUrl);
+    const res = await fetch(imageUrl, {
+      // Notion/S3에서 리다이렉트가 있을 수 있으니 follow 처리
+      redirect: 'follow',
+      cache: 'no-store', // 서버 fetch 캐싱 방지
+    });
 
     if (!res.ok) {
       console.error(`Image fetch failed: ${res.status} ${res.statusText}`);
@@ -23,7 +27,8 @@ export async function GET(req: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': contentType,
-        'Cache-Control': 'public, max-age=86400, immutable',
+        // Presigned URL 만료 가능성을 고려해서 캐시 기간 단축
+        'Cache-Control': 'public, max-age=300, stale-while-revalidate=60',
         'Content-Length': imageBuffer.byteLength.toString(),
         'Access-Control-Allow-Origin': '*',
       },
