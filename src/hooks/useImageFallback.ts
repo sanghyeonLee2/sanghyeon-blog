@@ -7,14 +7,16 @@ const useImageFallback = (src: string) => {
 
   useEffect(() => {
     if (src) {
+      // 최초 로드: 캐시 사용
       setPresignedUrl(API_URLS.GET.IMAGE_PROXY(src));
     }
   }, [src]);
 
   const handleError = () => {
-    console.error(`Image load failed for ${src}. Falling back to default image.`);
+    console.error(`Image load failed for ${src}. Retrying with cache-bust...`);
 
-    setPresignedUrl(API_URLS.GET.IMAGE_PROXY(src) || DEFAULTS.IMG_URL);
+    // 에러 시: ts 붙여서 캐시 무효화
+    setPresignedUrl(API_URLS.GET.IMAGE_PROXY(src, true) || DEFAULTS.IMG_URL);
   };
 
   return {
